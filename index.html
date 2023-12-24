@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="title" content="2023 Highlights" />
+    <meta
+      name="description"
+      content="Just for fun 🥰!!"
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+
+    <title>Wanna see our 2023 highlights?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      function randomPositioning() {
+        const noButtonElement = document.getElementById("cant");
+        const { width, height } = noButtonElement.getBoundingClientRect();
+
+        const x = Math.random() * (window.innerWidth - width);
+        const y = Math.random() * (window.innerHeight - height);
+
+        noButtonElement.style.left = `${x}px`;
+        noButtonElement.style.top = `${y}px`;
+      }
+
+      window.addEventListener("load", () => {
+        const noButtonElement = document.getElementById("cant");
+        const { x, y, width, height } = noButtonElement.getBoundingClientRect();
+
+        noButtonElement.style.position = "absolute";
+        noButtonElement.style.top = `${y}px`;
+        noButtonElement.style.left = `${x}px`;
+        noButtonElement.style.transition = `left 0.3s, top 0.3s`;
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Do you wanna see our 2023 highlights?</h1>
+
+      <img
+        src="cute.gif"
+        alt="Cute animated illustration"
+        draggable="false"
+      />
+
+      <noscript>
+        <meta http-equiv="refresh" content="0;url=nojs.html" />
+      </noscript>
+
+      <div class="answer">
+        <a href="yes.html">Yes :D</a>
+        <button
+          id="cant"
+          onmouseover="randomPositioning()"
+          onclick="randomPositioning()"
+        >
+          No >:(
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

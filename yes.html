@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="title" content="Collage" />
+    <meta
+      name="description"
+      content="Collage"
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="language" content="English" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="yes.css" />
+
+    <title>2023 Recap</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body>
+
+<div id="imageContainer">
+    <img class="image visible" src="image_1.jpg" alt="jan">
+    <img class="image" src="image_2.jpg" alt="feb">
+    <img class="image" src="image_3.jpg" alt="mar">
+    <img class="image" src="image_4.jpg" alt="apr">
+    <img class="image" src="image_5.jpg" alt="may">
+    <img class="image" src="image_6.jpg" alt="jun">
+    <img class="image" src="image_7.jpg" alt="jul">
+    <img class="image" src="image_8.jpg" alt="aug">
+    <img class="image" src="image_9.jpg" alt="sep">
+    <img class="image" src="image_11.png" alt="nov">
+</div>
+
+<div id="captionContainer">
+    <p class="caption visible-caption">Jan: Coffee date before LD</p>
+    <p class="caption">Feb: Anniversary !!!</p>
+    <p class="caption">Mar: Dallas trip </p>
+    <p class="caption">Apr: Back to LD </p>
+    <p class="caption">May: "Get my watch in the pic"</p>
+    <p class="caption">June: Last pic before LD again</p>
+    <p class="caption">July: Studying at GSU </p>
+    <p class="caption">Aug: Last date before LD again </p>
+    <p class="caption">Sep: Birthday month !!! </p>
+    <p class="caption">Nov: LD Shopping Spree </p>
+</div>
+
+<div id="arrowContainer">
+    <span class="arrow" onclick="prevImage()">&#8592; Prev</span>
+    <span class="arrow" onclick="nextImage()">Next &#8594;</span>
+</div>
+
+<script>
+    let currentIndex = 0;
+    let intervalId;
+
+    function showImage(index) {
+        const images = document.querySelectorAll('.image');
+        const captions = document.querySelectorAll('.caption');
+
+        images.forEach(image => image.classList.remove('visible'));
+        captions.forEach(caption => caption.classList.remove('visible-caption'));
+
+        images[index].classList.add('visible');
+        captions[index].classList.add('visible-caption');
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % 10; // Assuming 3 images in the example
+        showImage(currentIndex);
+        resetInterval();
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + 10) % 10; // Assuming 3 images in the example
+        showImage(currentIndex);
+        resetInterval();
+    }
+
+    function resetInterval() {
+        clearInterval(intervalId);
+        intervalId = setInterval(nextImage, 15000);
+    }
+
+    // Set a timer to transition between images every 15 seconds
+    intervalId = setInterval(nextImage, 15000);
+</script>
+
+</body>
+</html>
